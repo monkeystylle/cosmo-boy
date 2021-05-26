@@ -9,17 +9,28 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => {
   return {
     root: {
-      margin: 100,
-      display: 'flex',
-      gap: '40px',
+      background: '#0A0B5B',
+      overflowX: 'hidden',
     },
     title: {
       flexGrow: 1,
     },
+    form: {
+      background: '#e0e0fb',
+      display: 'flex',
+      flexDirection: 'column',
+      paddingY: theme.spacing(2),
+    },
+    /* small tablet styles */
+
+    /* large & laptop styles */
+
+    /* desktop styles   */
   };
 });
 
@@ -27,7 +38,7 @@ function mobilefirst() {
   const classes = useStyles();
 
   return (
-    <Box>
+    <Box className={classes.root}>
       {/*NAV */}
       <AppBar position="static">
         <Toolbar>
@@ -55,7 +66,9 @@ function mobilefirst() {
         <Typography variant="h6">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, repellat!
         </Typography>
-        <Typography variant="h6">view my work</Typography>
+        <Button variant="contained" color="primary">
+          View my work
+        </Button>
         <img src="/images/banner_image.png" alt="pic of planet" />
       </Box>
 
@@ -87,7 +100,7 @@ function mobilefirst() {
       {/* SKILLS */}
       <Box>
         <Typography variant="h5">Things I Can DO</Typography>
-        <Grid container direction="row" spacing={4}>
+        <Grid container direction="column" spacing={4}>
           <Grid item>
             <Paper>
               <img src="/images/comet_1.svg" alt="" />
@@ -124,28 +137,45 @@ function mobilefirst() {
       </Box>
 
       {/* CONTACT */}
-      <Box marginTop="40px">
-        <Typography variant="h5">Get in Touch</Typography>
-        <Typography variant="body-2">
-          Lorem ipsum dolor sit amet consectetur.
-        </Typography>
-        <Box>
-          <form noValidate autoComplete="off">
-            <TextField label="Name" variant="outlined" />
-            <TextField label="Email" variant="outlined" />
+      <Box marginTop="40px" paddingY={4} className={classes.form}>
+        <Container maxWidth="xs">
+          <Box>
+            <Typography variant="h5">Get in Touch</Typography>
+            <Typography variant="body-2">
+              Lorem ipsum dolor sit amet consectetur.
+            </Typography>
+          </Box>
 
-            <TextField
-              label="Multiline"
-              multiline
-              rows={5}
-              defaultValue="This is a text area"
-              variant="outlined"
-            />
-            <Button variant="contained" size="large">
-              Submit
-            </Button>
-          </form>
-        </Box>
+          <Box>
+            <form noValidate autoComplete="off">
+              <TextField
+                label="Name"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+              />
+              <TextField
+                label="Email"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+              />
+
+              <TextField
+                label="Message"
+                margin="normal"
+                fullWidth
+                multiline
+                rows={5}
+                defaultValue="This is a text area"
+                variant="outlined"
+              />
+              <Button variant="contained" size="large" color="primary">
+                Submit
+              </Button>
+            </form>
+          </Box>
+        </Container>
       </Box>
 
       {/* FOOTER */}

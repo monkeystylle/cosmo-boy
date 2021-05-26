@@ -1,0 +1,6 @@
+.back {
+  background-image: url('/images/project_1.png');
+  height: 100vh;
+  margin: 50px;
+  border: 1px solid brown;
+}
