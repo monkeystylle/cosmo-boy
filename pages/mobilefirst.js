@@ -51,6 +51,9 @@ const useStyles = makeStyles(theme => {
       width: '200%',
       height: '100%',
       objectFit: 'scale-down',
+      [theme.breakpoints.up('sm')]: {
+        width: '100%',
+      },
     },
     bgimage: {
       background: 'url(/images/square_bg.png)',
@@ -65,6 +68,10 @@ const useStyles = makeStyles(theme => {
     },
     projectText: {
       margin: 'auto 0px',
+      [theme.breakpoints.up('sm')]: {
+        textAlign: 'center',
+        marginTop: '-20px',
+      },
     },
     projectTextColor: {
       color: '#9994f7',
@@ -76,10 +83,18 @@ const useStyles = makeStyles(theme => {
     thingsIcanDoBox: {
       background: '#07083e',
       textAlign: 'center',
+      [theme.breakpoints.up('sm')]: {
+        paddingTop: '64px',
+        paddingBottom: '32px',
+      },
     },
     thingsIcanDoPaper: {
       padding: '15px',
       background: 'rgba(0,0,0,0.2)',
+      [theme.breakpoints.up('sm')]: {
+        paddingTop: '32px',
+        paddingBottom: '32px',
+      },
       '& > img': {
         height: '80px',
         margin: '10px auto',
@@ -93,6 +108,9 @@ const useStyles = makeStyles(theme => {
     footer: {
       textAlign: 'center',
       padding: '8px',
+      [theme.breakpoints.up('sm')]: {
+        padding: '24px',
+      },
       '& > img': {
         margin: ' 8px 6px',
       },
@@ -127,7 +145,7 @@ function mobilefirst() {
       {/*WELCOME */}
       <Box mt={6} className={classes.minMaxContainer}>
         <Grid container>
-          <Grid item xs={8}>
+          <Grid item xs={8} sm={7}>
             <Typography
               color="textSecondary"
               variant="h5"
@@ -147,7 +165,7 @@ function mobilefirst() {
               </Button>
             </Box>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} sm={5}>
             <img
               src="/images/banner_image.png"
               alt="pic of planet"
@@ -160,7 +178,7 @@ function mobilefirst() {
       {/* SOME OF MY PROJECTS */}
       <Box mt={8} className={classes.bgimage}>
         <Box className={classes.minMaxContainer}>
-          <Box mb={3}>
+          <Box mb={3} py={{ sm: 4 }}>
             <Typography
               color="textSecondary"
               variant="h5"
@@ -173,15 +191,15 @@ function mobilefirst() {
 
           <Grid container spacing={5} justify="center">
             {/* space race */}
-            <Grid item container spacing={5}>
-              <Grid item xs={6}>
+            <Grid item container spacing={5} sm={6}>
+              <Grid item xs={6} sm={11}>
                 <img
                   className={classes.imageSomeProject}
                   src="/images/project_1.png"
                   alt="space race image"
                 />
               </Grid>
-              <Grid item xs={6} className={classes.projectText}>
+              <Grid item xs={6} sm={11} className={classes.projectText}>
                 <Typography
                   className={classes.projectTextColor}
                   variant="h6"
@@ -192,15 +210,15 @@ function mobilefirst() {
               </Grid>
             </Grid>
             {/* planet boy */}
-            <Grid item container spacing={5}>
-              <Grid item xs={6}>
+            <Grid item container spacing={5} sm={6}>
+              <Grid item xs={6} sm={11}>
                 <img
                   className={classes.imageSomeProject}
                   src="/images/project_2.png"
                   alt="planet boy image"
                 />
               </Grid>
-              <Grid item xs={6} className={classes.projectText}>
+              <Grid item xs={6} sm={11} className={classes.projectText}>
                 <Typography
                   className={classes.projectTextColor}
                   variant="h6"
@@ -211,15 +229,15 @@ function mobilefirst() {
               </Grid>
             </Grid>
             {/* captain cosmo */}
-            <Grid item container spacing={5}>
-              <Grid item item xs={6}>
+            <Grid item container spacing={5} sm={6}>
+              <Grid item item xs={6} sm={11}>
                 <img
                   className={classes.imageSomeProject}
                   src="/images/project_3.png"
                   alt="captain cosmo image"
                 />
               </Grid>
-              <Grid item item xs={6} className={classes.projectText}>
+              <Grid item item xs={6} sm={11} className={classes.projectText}>
                 <Typography
                   className={classes.projectTextColor}
                   variant="h6"
@@ -243,8 +261,8 @@ function mobilefirst() {
           </Box>
 
           <Box my={3}>
-            <Grid container spacing={3}>
-              <Grid item xs={6}>
+            <Grid container spacing={3} justify="center">
+              <Grid item xs={6} sm={5}>
                 <Paper className={classes.thingsIcanDoPaper}>
                   <img src="/images/comet_1.svg" alt="" />
                   <Typography variant="h6" color="textSecondary">
@@ -252,7 +270,7 @@ function mobilefirst() {
                   </Typography>
                 </Paper>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={6} sm={5}>
                 <Paper className={classes.thingsIcanDoPaper}>
                   <img src="/images/comet_2.svg" alt="" />
                   <Typography variant="h6" color="textSecondary">
@@ -260,7 +278,7 @@ function mobilefirst() {
                   </Typography>
                 </Paper>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={6} sm={5}>
                 <Paper className={classes.thingsIcanDoPaper}>
                   <img src="/images/comet_3.svg" alt="" />
                   <Typography variant="h6" color="textSecondary">
@@ -268,7 +286,7 @@ function mobilefirst() {
                   </Typography>
                 </Paper>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={6} sm={5}>
                 <Paper className={classes.thingsIcanDoPaper}>
                   <img src="/images/comet_4.svg" alt="" />
                   <Typography variant="h6" color="textSecondary">
@@ -281,16 +299,8 @@ function mobilefirst() {
         </Box>
       </Box>
 
-      {/* ewan */}
-      <Box marginTop="40px" className={classes.minMaxContainer}>
-        <Typography variant="body-2" color="textSecondary">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam,
-          sint?
-        </Typography>
-      </Box>
-
       {/* CONTACT */}
-      <Box mt={6} py={4} className={classes.contact}>
+      <Box py={4} className={classes.contact}>
         <Container maxWidth="xs">
           <Box>
             <Typography variant="h5">Get in Touch</Typography>
