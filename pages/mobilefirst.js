@@ -124,6 +124,10 @@ const useStyles = makeStyles(theme => {
       padding: '15px',
       background: 'rgba(0,0,0,0.2)',
       [theme.breakpoints.up('xs')]: {
+        paddingTop: '8px',
+        paddingBottom: '8px',
+      },
+      [theme.breakpoints.up('sm')]: {
         paddingTop: '32px',
         paddingBottom: '32px',
       },
@@ -348,7 +352,7 @@ function mobilefirst() {
         <Container maxWidth="xs">
           <Box>
             <Typography variant="h5">Get in Touch</Typography>
-            <Typography variant="body-2">
+            <Typography variant="h6">
               Lorem ipsum dolor sit amet consectetur.
             </Typography>
           </Box>
@@ -377,10 +381,11 @@ function mobilefirst() {
                 defaultValue="This is a text area"
                 variant="outlined"
               />
-
-              <Button variant="contained" size="large" color="primary">
-                Submit
-              </Button>
+              <Box mt={1}>
+                <Button variant="contained" size="large" color="primary">
+                  Submit
+                </Button>
+              </Box>
             </form>
           </Box>
         </Container>
