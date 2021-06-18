@@ -111,19 +111,15 @@ const useStyles = makeStyles(theme => {
     thingsIcanDoBox: {
       background: '#07083e',
       textAlign: 'center',
-      [theme.breakpoints.up('xs')]: {
-        paddingTop: '64px',
-        paddingBottom: '40px',
-      },
       [theme.breakpoints.up('sm')]: {
         paddingTop: '64px',
-        paddingBottom: '64px',
+        paddingBottom: '32px',
       },
     },
     thingsIcanDoPaper: {
       padding: '15px',
       background: 'rgba(0,0,0,0.2)',
-      [theme.breakpoints.up('xs')]: {
+      [theme.breakpoints.up('sm')]: {
         paddingTop: '32px',
         paddingBottom: '32px',
       },
@@ -304,9 +300,9 @@ function mobilefirst() {
             </Typography>
           </Box>
 
-          <Box my={3} mt={{ xs: 4, sm: 6, md: 8 }}>
+          <Box my={3}>
             <Grid container spacing={3} justify="center">
-              <Grid item xs={6} sm={5} md={3}>
+              <Grid item xs={6} sm={5}>
                 <Paper className={classes.thingsIcanDoPaper}>
                   <img src="/images/comet_1.svg" alt="" />
                   <Typography variant="h6" color="textSecondary">
@@ -314,7 +310,7 @@ function mobilefirst() {
                   </Typography>
                 </Paper>
               </Grid>
-              <Grid item xs={6} sm={5} md={3}>
+              <Grid item xs={6} sm={5}>
                 <Paper className={classes.thingsIcanDoPaper}>
                   <img src="/images/comet_2.svg" alt="" />
                   <Typography variant="h6" color="textSecondary">
@@ -322,7 +318,7 @@ function mobilefirst() {
                   </Typography>
                 </Paper>
               </Grid>
-              <Grid item xs={6} sm={5} md={3}>
+              <Grid item xs={6} sm={5}>
                 <Paper className={classes.thingsIcanDoPaper}>
                   <img src="/images/comet_3.svg" alt="" />
                   <Typography variant="h6" color="textSecondary">
@@ -330,7 +326,7 @@ function mobilefirst() {
                   </Typography>
                 </Paper>
               </Grid>
-              <Grid item xs={6} sm={5} md={3}>
+              <Grid item xs={6} sm={5}>
                 <Paper className={classes.thingsIcanDoPaper}>
                   <img src="/images/comet_4.svg" alt="" />
                   <Typography variant="h6" color="textSecondary">
@@ -344,7 +340,7 @@ function mobilefirst() {
       </Box>
 
       {/* CONTACT */}
-      <Box py={{ xs: 4, md: 6 }} className={classes.contact}>
+      <Box py={4} className={classes.contact}>
         <Container maxWidth="xs">
           <Box>
             <Typography variant="h5">Get in Touch</Typography>
