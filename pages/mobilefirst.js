@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -156,23 +156,56 @@ const useStyles = makeStyles(theme => {
 
 function mobilefirst() {
   const classes = useStyles();
+  const dateYear = new Date().getFullYear();
+  //refs
+  const projectsRef = useRef();
+  const thingsIcanDoRef = useRef();
+  const contactRef = useRef();
+  //functions for section click
+  function projectsClick() {
+    projectsRef.current.scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
+  function thingsIcanDoClick() {
+    thingsIcanDoRef.current.scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
+  function contactClick() {
+    contactRef.current.scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
 
   return (
     <Box className={classes.root}>
       {/*NAV */}
       <AppBar position="static">
-        <Toolbar className={classes.minMaxContainerAppBar}>
-          <Typography variant="h5" className={classes.title}>
+        <Toolbar variant="dense" className={classes.minMaxContainerAppBar}>
+          <Typography variant="h6" className={classes.title}>
             Cosmo Funkie
           </Typography>
-          <Button className={classes.appBar} color="inherit">
-            <Typography variant="h6">Portfolio</Typography>
+          <Button
+            className={classes.appBar}
+            color="inherit"
+            onClick={projectsClick}
+          >
+            Projects
           </Button>
-          <Button className={classes.appBar} color="inherit">
-            <Typography variant="h6">Skills</Typography>
+          <Button
+            className={classes.appBar}
+            color="inherit"
+            onClick={thingsIcanDoClick}
+          >
+            Things i can do
           </Button>
-          <Button className={classes.appBar} color="inherit">
-            <Typography variant="h6">Contact</Typography>
+          <Button
+            className={classes.appBar}
+            color="inherit"
+            onClick={contactClick}
+          >
+            Contact
           </Button>
         </Toolbar>
       </AppBar>
@@ -219,7 +252,7 @@ function mobilefirst() {
       </Box>
 
       {/* SOME OF MY PROJECTS */}
-      <Box mt={8} className={classes.bgimage}>
+      <Box mt={8} className={classes.bgimage} ref={projectsRef}>
         <Box className={classes.minMaxContainer}>
           <Box mb={3} py={{ sm: 4 }}>
             <Typography
@@ -300,7 +333,7 @@ function mobilefirst() {
       </Box>
 
       {/* THINGS I CAN DO */}
-      <Box className={classes.thingsIcanDoBox}>
+      <Box className={classes.thingsIcanDoBox} ref={thingsIcanDoRef}>
         <Box className={classes.minMaxContainer}>
           <Box mt={0}>
             <Typography color="textSecondary" variant="h5">
@@ -348,7 +381,7 @@ function mobilefirst() {
       </Box>
 
       {/* CONTACT */}
-      <Box py={{ xs: 4, md: 6 }} className={classes.contact}>
+      <Box py={{ xs: 4, md: 6 }} className={classes.contact} ref={contactRef}>
         <Container maxWidth="xs">
           <Box>
             <Typography variant="h5">Get in Touch</Typography>
@@ -394,7 +427,7 @@ function mobilefirst() {
       {/* FOOTER */}
       <Box className={clsx(classes.minMaxContainer, classes.footer)}>
         <Typography color="textSecondary" variant="h6">
-          Copyright 2020 Cosmo Junkie
+          Copyright {dateYear} Cosmo Junkie
         </Typography>
         <img src="/images/icon_fb.svg" alt="fb" />
         <img src="/images/icon_tw.svg" alt="tw" />
