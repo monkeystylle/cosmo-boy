@@ -12,6 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import clsx from 'clsx';
 import Image from 'next/image';
+import NavDrawer from './Component/NavDrawer';
 
 const useStyles = makeStyles(theme => {
   return {
@@ -183,6 +184,7 @@ function mobilefirst() {
       {/*NAV */}
       <AppBar position="static">
         <Toolbar variant="dense" className={classes.minMaxContainerAppBar}>
+          <NavDrawer />
           <Typography variant="h6" className={classes.title}>
             Cosmo Funkie
           </Typography>
