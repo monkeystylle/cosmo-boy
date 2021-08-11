@@ -27,9 +27,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function NavDrawer() {
+function NavDrawer({ projectsClick, thingsIcanDoClick, contactClick }) {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
+
+  const gotoProjects = () => {
+    setOpen(false);
+    projectsClick();
+  };
+
+  const gotoProjects2 = () => {
+    projectsClick();
+  };
 
   return (
     <div>
@@ -52,19 +61,25 @@ function NavDrawer() {
           </Box>
           <Divider />
           <List>
-            <ListItem button>
+            <ListItem onClick={gotoProjects} button>
               <ListItemIcon>
                 <FolderIcon />
               </ListItemIcon>
               <ListItemText primary="Projects" />
             </ListItem>
-            <ListItem button>
+            <ListItem onClick={gotoProjects2} button>
               <ListItemIcon>
                 <FormatListBulletedIcon />
               </ListItemIcon>
               <ListItemText primary="Things I Can Do" />
             </ListItem>
-            <ListItem button>
+            <ListItem
+              onClick={() => {
+                gotoProjects2();
+                setOpen(false);
+              }}
+              button
+            >
               <ListItemIcon>
                 <ContactPhoneIcon />
               </ListItemIcon>

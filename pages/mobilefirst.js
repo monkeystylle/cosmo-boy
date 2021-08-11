@@ -184,7 +184,11 @@ function mobilefirst() {
       {/*NAV */}
       <AppBar position="static">
         <Toolbar variant="dense" className={classes.minMaxContainerAppBar}>
-          <NavDrawer />
+          <NavDrawer
+            projectsClick={projectsClick}
+            thingsIcanDoClick={thingsIcanDoClick}
+            contactClick={contactClick}
+          />
           <Typography variant="h6" className={classes.title}>
             Cosmo Funkie
           </Typography>
